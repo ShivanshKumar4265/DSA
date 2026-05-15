@@ -9,29 +9,32 @@ import java.util.ArrayList;
 public class MyMap{
 	public static void main(String[] args){
 		Map<Character, Integer> map = new HashMap<>();
-		System.out.println("Before adding "+ map);
+		System.out.println("Before adding " + map);
 		System.out.println("before Adding Map Size " + map.size());
-		
-		map.put('a',1);
-		map.put('4',1);
-		map.put('5',1);
-		map.put('g',1);
-		map.put('t',1);
-		map.put('b',1);
-		map.put('h',1);
-		map.put('n',1);
-		map.put('k',1);
-	
-		System.out.println("Old value replace by new val 10 old val"+ map.put('b',10));
-		System.out.println("after adding "+ map);
+
+		map.put('D', 101);   // Delhi
+		map.put('M', 102);   // Mumbai
+		map.put('C', 103);   // Chennai
+		map.put('K', 104);   // Kolkata
+		map.put('B', 105);   // Bangalore
+		map.put('H', 106);   // Hyderabad
+		map.put('P', 107);   // Pune
+		map.put('A', 108);   // Ahmedabad
+		map.put('J', 109);   // Jaipur
+
+		System.out.println(
+			"Old value replaced by new val 500, old val = "
+			+ map.put('B', 500)
+		);
+
+		System.out.println("after adding " + map);
 		System.out.println("after Adding Map Size " + map.size());
-		
-		
+
 		Map<Character, Integer> map1 = new HashMap<>();
-				
-		map1.put('y',1);
-		map1.put('x',1);
-		map1.put('z',1);
+
+		map1.put('L', 201);   // Lucknow
+		map1.put('S', 202);   // Surat
+		map1.put('N', 203);   // Noida
 	
 		
 		map.putAll(map1);
@@ -128,7 +131,23 @@ public class MyMap{
 		
 		System.out.println("\n\n\n-----------------will fetch the entry of map--------");
 		
+		// first enetry is the inteface inseid the map interface, it has 3 method
+		// 1. object getKey();
+		// 2. object getValue();
+		// 3. object setValue();
+		
+		Set entrySet = map.entrySet();
+		
+		Iterator it = entrySet.iterator();
+		while(it.hasNext()){
+			Map.Entry entry = (Map.Entry)it.next();
+			System.out.println("Entry key :" + entry.getKey() + " Entry Value : " + entry.getValue());
 
+			if(entry.getKey().equals('A')){
+				entry.setValue((Integer)7890);
+			}
+		}
+		
 		
 	}
 }
