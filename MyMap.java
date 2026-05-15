@@ -136,18 +136,36 @@ public class MyMap{
 		// 2. object getValue();
 		// 3. object setValue();
 		
-		Set entrySet = map.entrySet();
+		Set entrySet1 = map.entrySet();
 		
-		Iterator it = entrySet.iterator();
-		while(it.hasNext()){
-			Map.Entry entry = (Map.Entry)it.next();
+		Iterator it3 = entrySet1.iterator();
+		while(it3.hasNext()){
+			Map.Entry entry = (Map.Entry)it3.next();
 			System.out.println("Entry key :" + entry.getKey() + " Entry Value : " + entry.getValue());
-
+			
 			if(entry.getKey().equals('A')){
 				entry.setValue((Integer)7890);
 			}
 		}
 		
+		System.out.println("\n\n\n-----------------use genrics correctly --------");
+		
+		Set<Map.Entry<Character, Integer>> entrySet = map.entrySet();
+
+		Iterator<Map.Entry<Character, Integer>> it = entrySet.iterator();
+
+		while(it.hasNext()){
+			Map.Entry<Character, Integer> entry = it.next();
+
+			System.out.println(
+				"Entry key :" + entry.getKey() +
+				" Entry Value : " + entry.getValue()
+			);
+
+			if(entry.getKey().equals('A')){
+				entry.setValue(7890);
+			}
+		}
 		
 	}
 }
